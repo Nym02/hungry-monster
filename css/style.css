@@ -49,3 +49,33 @@ body {
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
+
+/* recipe content css  */
+.seaction-content {
+}
+.meal {
+  background-color: #f8f7f5;
+  border-radius: 0.5rem;
+}
+.meal-details,
+.meal-details:link,
+.meal-details:visited {
+  color: #141313;
+}
+.meal-details,
+.meal-details:link,
+.meal-details:visited:hover {
+  color: #141313;
+  text-decoration: none;
+}
+.meal-img {
+  border-radius: 0.5rem !important;
+}
+.meal-info {
+  padding: 2rem 0;
+  text-align: center;
+}
+.meal-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
