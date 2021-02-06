@@ -20,14 +20,23 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main class="main">
-      <section class="section-form">
-        <form action="" class="form">
-          <input type="text" placeholder="Search for meal.." />
-        </form>
-      </section>
+      <div class="container">
+        <section class="section-form">
+          <form action="" class="form">
+            <div class="form-input">
+              <span class="form-input-icon"><i class="fas fa-search"></i></span>
+              <input type="text" placeholder="Search for meal.." />
+            </div>
+            <button class="btn-search" type="submit">Search</button>
+          </form>
+        </section>
+      </div>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

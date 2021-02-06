@@ -1,1 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Titillium Web", sans-serif;
+}
+
+/* form section  */
+
+.section-form {
+  padding: 10rem 0;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.form-input {
+  background: #f8f7f5;
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  width: 34%;
+  text-align: left;
+  color: #b9b8b7;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.form-input-icon i.fa-search {
+  color: #b9b8b7;
+}
+.form-input input {
+  background: #f8f7f5;
+  border: none;
+  margin-left: 1rem;
+  width: 91%;
+}
+.btn-search {
+  padding: 1.455rem 3rem;
+  border: none;
+  margin-left: -1rem;
+  color: white;
+  background: #f06c4e;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
