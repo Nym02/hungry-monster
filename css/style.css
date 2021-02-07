@@ -12,6 +12,7 @@ html {
 }
 body {
   font-family: "Titillium Web", sans-serif;
+  position: relative;
 }
 
 /* form section  */
@@ -59,6 +60,7 @@ body {
 .meal {
   background-color: #f8f7f5;
   border-radius: 0.5rem;
+  box-shadow: 0rem 1rem 2rem #4e80b3;
 }
 .meal-details,
 .meal-details:link,
@@ -86,7 +88,7 @@ body {
 /* popup section */
 
 .section-popup {
-  position: absolute;
+  position: fixed;
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.74),
@@ -143,7 +145,7 @@ body {
 .recipe-ingredients-text {
   font-size: 1.5rem;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 .error-msg {
   font-size: 2rem;
