@@ -103,6 +103,7 @@ body {
   z-index: -1;
   transition: all 0.5s;
 }
+
 .close-icon {
   text-align: right;
   font-size: 4rem;
@@ -113,7 +114,9 @@ body {
 .close-icon .fa-window-close {
   cursor: pointer;
 }
-
+#pop-row {
+  margin-top: -7rem;
+}
 .recipe-details {
   background: white;
   border-radius: 1rem;

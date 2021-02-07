@@ -199,6 +199,30 @@ function showRecipe(recipe) {
                             <label for="" class="recipe-ingredients-text"
                             >${res.strIngredient7}</label>
                         </li>
+                        <li class="recipe-item">
+                        <input
+                            type="checkbox"
+                            checked
+                            class="recipe-ingredients" />
+                            <label for="" class="recipe-ingredients-text"
+                            >${res.strIngredient8}</label>
+                        </li>
+                        <li class="recipe-item">
+                        <input
+                            type="checkbox"
+                            checked
+                            class="recipe-ingredients" />
+                            <label for="" class="recipe-ingredients-text"
+                            >${res.strIngredient9}</label>
+                        </li>
+                        <li class="recipe-item">
+                        <input
+                            type="checkbox"
+                            checked
+                            class="recipe-ingredients" />
+                            <label for="" class="recipe-ingredients-text"
+                            >${res.strIngredient10}</label>
+                        </li>
                         
                   </ul>
                 </div>
