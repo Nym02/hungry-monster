@@ -1,16 +1,3 @@
-// let popup = document.querySelector('.section-popup');
-// document.getElementById('meal').addEventListener('click', ()=>{
-//     popup.style.opacity = '1';
-//     document.querySelector('.recipe-section').style.zIndex = '-1';
-//     popup.style.zIndex = '100';
-// });
-
-// document.getElementById('close-btn').addEventListener('click', (e)=>{
-//     popup.style.opacity = '0';
-//     document.querySelector('.recipe-section').style.zIndex = '100';
-//     popup.style.zIndex = '-1';
-// });
-
 const popup = isPopup => {
     let popup = document.querySelector('.section-popup');
     if(isPopup == true){
@@ -35,15 +22,13 @@ form.addEventListener('submit', (e)=>{
 
     fetchApi(inputValue);
 
-    console.log(inputValue);
+    // console.log(inputValue);
 });
 
 const fetchApi = query => {
 
     if(query == ''){
-        // setTimeout(()=>{
             document.querySelector('#content-row').innerHTML = `<span class='alert alert-danger error-msg'>Please enter a food name.</span>`;
-        // },5000);
         
     } else {
         let url = fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
@@ -51,7 +36,7 @@ const fetchApi = query => {
         url
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             displayMeal(data.meals);
         });
     }
@@ -92,7 +77,7 @@ const displayMeal = data => {
             `
         });
     } else if(data == null) {
-        console.log(data);
+        // console.log(data);
         temp = `<span class='alert alert-danger error-msg'>No recipes available.</span>`;
     }
     
@@ -114,16 +99,20 @@ const fetchMealInfo = meal=> {
     mealUrl
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
         showRecipe(data.meals);
     })
 }
 
 const showRecipe = recipe => {
     let popupTemp = '';
+    let arr = [];
+    let a = [];
+
     
 
     recipe.map(res => {
+        a = arr.push(res);
         popupTemp += 
         `
         <div class="col-md-5 offset-md-3">
@@ -140,86 +129,8 @@ const showRecipe = recipe => {
 
                   <ul class="recipe-list">
                   
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient1}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient2}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient3}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient4}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient5}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient6}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient7}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient8}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient9}</label>
-                        </li>
-                        <li class="recipe-item">
-                        <input
-                            type="checkbox"
-                            checked
-                            class="recipe-ingredients" />
-                            <label for="" class="recipe-ingredients-text"
-                            >${res.strIngredient10}</label>
-                        </li>
+                        
+                       
                         
                   </ul>
                 </div>
@@ -231,6 +142,37 @@ const showRecipe = recipe => {
         document.getElementById('pop-row').innerHTML = popupTemp;
         
     });
+    
+    displayIng(arr);
+
+}
+
+const displayIng = array => {
+    console.log(array[0]);
+    let obj = array[0];
+    let itemIngredients = '';
+
+    for(let i=1; i<=10; i++){
+        let e = obj[`strIngredient${i}`];
+
+        if(e != null && e != ""){
+            itemIngredients += `
+            <li class="recipe-item">
+                        <input
+                            type="checkbox"
+                            checked
+                            class="recipe-ingredients" />
+                            <label for="" class="recipe-ingredients-text"
+                            >${e}</label>
+                        </li>
+            `;
+            console.log(`str${i} => `, e);
+        } else {
+            console.log('empty');
+        }
+
+        document.querySelector('.recipe-list').innerHTML = itemIngredients;
+    }
 
 }
 
