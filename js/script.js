@@ -11,7 +11,7 @@
 //     popup.style.zIndex = '-1';
 // });
 
-function popup(isPopup) {
+const popup = isPopup => {
     let popup = document.querySelector('.section-popup');
     if(isPopup == true){
         // popup.style.transform = 'translateX(0rem)';
@@ -38,7 +38,7 @@ form.addEventListener('submit', (e)=>{
     console.log(inputValue);
 });
 
-function fetchApi(query) {
+const fetchApi = query => {
 
     if(query == ''){
         // setTimeout(()=>{
@@ -61,7 +61,7 @@ function fetchApi(query) {
 }
 
 
-function displayMeal(data) {
+const displayMeal = data => {
     
     let temp = '';
     if(data != null){
@@ -100,15 +100,15 @@ function displayMeal(data) {
     document.querySelector('#content-row').innerHTML = temp;
 }
 
-function twoFun(isPopup, id) {
+const twoFun = (isPopup, id) => {
     popup(isPopup);
     displayRecipe(id);
 }
-function displayRecipe(mealID) {
+const displayRecipe = mealID => {
     fetchMealInfo(mealID);
 }
 
-function fetchMealInfo(meal) {
+const fetchMealInfo = meal=> {
     let mealUrl = fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`);
 
     mealUrl
@@ -119,14 +119,11 @@ function fetchMealInfo(meal) {
     })
 }
 
-function showRecipe(recipe) {
+const showRecipe = recipe => {
     let popupTemp = '';
-    let ingredientsArr = [];
-    let a = [];
+    
 
     recipe.map(res => {
-        a = ingredientsArr.push(res);
-
         popupTemp += 
         `
         <div class="col-md-5 offset-md-3">
@@ -229,44 +226,15 @@ function showRecipe(recipe) {
               </div>
             </div>
         `;
-        // console.log(res);
+     
 
         document.getElementById('pop-row').innerHTML = popupTemp;
         
     });
 
-    
-    // console.log(ingredientsArr);
-    displayIngredients(ingredientsArr);
-  
 }
 
-function displayIngredients(b) {
-    let t = 1;
-    let p = b[0];
-    // console.log(`${b[strIngredient1]}`);
-    // let c = 0;
-    for(let [k,v] of Object.entries(p)){
-        let n=1;
-        // console.log(`${i}`);
-        console.log(`${k.length} => ${v}`);
 
-        // if(k == `strIngredient${n}`){
-        //     console.log('working', k);
-        //     if(`strIngredient${n}` == null){
-        //         console.log('nested working');
-        //     } else {
-        //         console.log('not ');
-        //     }
-        // } 
-        // n++;
-
-    }
-
-
-
-    //    t++;
-    }
 
 
 
