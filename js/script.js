@@ -164,11 +164,13 @@ const displayIng = array => {
                             class="recipe-ingredients" />
                             <label for="" class="recipe-ingredients-text"
                             >${e}</label>
-                        </li>
+            </li>
             `;
             console.log(`str${i} => `, e);
         } else {
             console.log('empty');
+            itemIngredients += `
+            `
         }
 
         document.querySelector('.recipe-list').innerHTML = itemIngredients;
